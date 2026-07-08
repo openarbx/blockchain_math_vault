@@ -22,9 +22,9 @@ $$
 A public-key signature scheme has three algorithms:
 
 $$
-(sk,pk)\leftarrow \operatorname{KeyGen},\qquad
-\sigma\leftarrow \operatorname{Sign}_{sk}(m),\qquad
-\operatorname{Verify}_{pk}(m,\sigma)\in\{0,1\}.
+(sk,pk)\leftarrow \mathrm{KeyGen},\qquad
+\sigma\leftarrow \mathrm{Sign}_{sk}(m),\qquad
+\mathrm{Verify}_{pk}(m,\sigma)\in\{0,1\}.
 $$
 
 The security target is existential unforgeability under chosen-message attack: after seeing signatures on messages of its choice, an adversary should still be unable to produce a valid signature on a new message.
@@ -346,7 +346,7 @@ Low-$s$ normalization does not make ECDSA non-malleable in every possible protoc
 A Bitcoin-style pay-to-public-key-hash address commits to a hash of the public key:
 
 $$
-\operatorname{pubKeyHash}=\operatorname{RIPEMD160}(\operatorname{SHA256}(\text{publicKey})).
+\mathrm{pubKeyHash}=\mathrm{RIPEMD160}(\mathrm{SHA256}(\text{publicKey})).
 $$
 
 Base58Check then adds a version byte and checksum for human-facing encoding. An address is not the public key itself; it is usually a hash commitment to one.
