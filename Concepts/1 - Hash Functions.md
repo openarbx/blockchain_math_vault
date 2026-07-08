@@ -69,7 +69,7 @@ Collision experiment Exp_coll(A, H):
 The advantage is
 
 $$
-\operatorname{Adv}^{coll}_{H}(A)=
+\mathrm{Adv}^{coll}_{H}(A)=
 \Pr[(x,x')\leftarrow A: x\ne x' \land H(x)=H(x')].
 $$
 
@@ -127,7 +127,7 @@ A blockchain note should not collapse all hashing vocabulary into one word.
 Merkle-Damgård hashes expose a digest that is essentially the final internal chaining value. If an attacker knows $H(m)$ and the length of $m$, it can often compute
 
 $$
-H(m \Vert \operatorname{pad}(m) \Vert m')
+H(m \Vert \mathrm{pad}(m) \Vert m')
 $$
 
 without knowing $m$ itself. This does not invert the hash; it extends a valid digest computation from the known final state.
@@ -135,7 +135,7 @@ without knowing $m$ itself. This does not invert the hash; it extends a valid di
 Bitcoin frequently uses double SHA-256:
 
 $$
-\operatorname{HASH256}(m)=\operatorname{SHA256}(\operatorname{SHA256}(m)).
+\mathrm{HASH256}(m)=\mathrm{SHA256}(\mathrm{SHA256}(m)).
 $$
 
 The outer hash hashes a fixed 32-byte value, so the attacker does not get a useful internal state for extending the original message. Double hashing is not a universal design pattern; modern protocols often prefer domain-separated hashes, HMAC, or sponge-based constructions where appropriate.
