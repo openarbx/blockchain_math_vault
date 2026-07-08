@@ -31,7 +31,7 @@ The security target is existential unforgeability under chosen-message attack: a
 
 ## 2. Formal curve setting
 
-Bitcoin uses ECDSA over secp256k1. The curve is defined over the prime field $\mathbb F_p$:
+Bitcoin uses ECDSA over secp256k1. The curve is defined over the prime field $\mathbb{F}_p$:
 
 $$
 y^2 \equiv x^3 + ax + b \pmod p
@@ -290,7 +290,7 @@ Accept iff R'.x mod n == r
 ```mermaid
 flowchart LR
     d["private scalar d"] -->|"scalar multiply by G"| Q["public key Q = dG"]
-    Q -. "ECDLP is hard" .-> d
+    Q -.->|"ECDLP is hard"| d
     M["message bytes m"] --> H["z = H(m)"]
     H --> S["signature (r,s)"]
     d --> S
@@ -346,7 +346,7 @@ Low-$s$ normalization does not make ECDSA non-malleable in every possible protoc
 A Bitcoin-style pay-to-public-key-hash address commits to a hash of the public key:
 
 $$
-\operatorname{pubKeyHash}=\operatorname{RIPEMD160}(\operatorname{SHA256}(publicKey)).
+\operatorname{pubKeyHash}=\operatorname{RIPEMD160}(\operatorname{SHA256}(\text{publicKey})).
 $$
 
 Base58Check then adds a version byte and checksum for human-facing encoding. An address is not the public key itself; it is usually a hash commitment to one.
