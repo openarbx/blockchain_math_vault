@@ -185,10 +185,10 @@ This is still a model, not a law of nature. Real risk also depends on network pr
 Bitcoin retargets periodically. The pedagogical formula is
 
 $$
-T_{new}=T_{old}\cdot \frac{actual\_time}{expected\_time}.
+T_{\text{new}}=T_{\text{old}}\cdot \frac{\text{actual time}}{\text{expected time}}.
 $$
 
-If blocks were too fast, $actual\_time<expected\_time$ and the target decreases, raising difficulty. If blocks were too slow, the target increases. Production systems clamp adjustments to prevent extreme jumps.
+If blocks were too fast, $\text{actual time}<\text{expected time}$ and the target decreases, raising difficulty. If blocks were too slow, the target increases. Production systems clamp adjustments to prevent extreme jumps.
 
 MiniChain uses a fixed leading-zero difficulty, so it demonstrates the distribution but not the feedback controller.
 
@@ -278,14 +278,14 @@ flowchart TD
     H1 --> H2["nonce = 1 -> c1a0... fail"]
     H2 --> H3["nonce = 2 -> 41be... fail"]
     H3 --> DOTS["independent trials"]
-    DOTS --> WIN["nonce = N -> hash < T success"]
+    DOTS --> WIN["nonce = N -> hash below target success"]
 ```
 
 ```mermaid
 flowchart LR
     B0["Block 0<br/>hash H0"] --> B1["Block 1<br/>prev H0<br/>hash H1"]
     B1 --> B2["Block 2<br/>prev H1<br/>hash H2"]
-    B1 -. "alternate fork" .-> B2A["Block 2a"]
+    B1 -.->|"alternate fork"| B2A["Block 2a"]
 ```
 
 ## 12. C# implementation link
@@ -330,19 +330,19 @@ Full file: [[Block.cs]]. Chain validation appears in [[5 - Putting It Together]]
 A miner's expected operating equation is
 
 $$
-\operatorname{profit}=\operatorname{revenue}-\operatorname{electricity}-\operatorname{hardware\ depreciation}-\operatorname{operating\ cost}.
+\text{profit}=\text{revenue}-\text{electricity}-\text{hardware depreciation}-\text{operating cost}.
 $$
 
 Revenue is
 
 $$
-\operatorname{revenue}=\operatorname{block\ subsidy}+\operatorname{fees}.
+\text{revenue}=\text{block subsidy}+\text{fees}.
 $$
 
 The chain's ongoing security budget is roughly the same quantity paid to miners:
 
 $$
-\operatorname{security\ budget}\approx \operatorname{block\ subsidy}+\operatorname{transaction\ fees}.
+\text{security budget}\approx \text{block subsidy}+\text{transaction fees}.
 $$
 
 When subsidy declines, long-run proof-of-work security increasingly depends on fees and market willingness to pay for settlement.
