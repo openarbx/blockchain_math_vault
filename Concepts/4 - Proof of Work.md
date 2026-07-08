@@ -28,7 +28,7 @@ $$
 Interpret the block-header hash as a 256-bit integer. A block is valid iff
 
 $$
-\operatorname{int}(H(header)) < T,
+\mathrm{int}(H(header)) < T,
 $$
 
 where $T$ is the current target.
@@ -36,7 +36,7 @@ where $T$ is the current target.
 For uniformly distributed hash outputs,
 
 $$
-p=\Pr[\operatorname{int}(H(header))<T]=\frac{T}{2^{256}}.
+p=\Pr[\mathrm{int}(H(header))<T]=\frac{T}{2^{256}}.
 $$
 
 If the target corresponds to requiring $k$ leading zero bits in a toy model, then
@@ -62,7 +62,7 @@ Smaller target means lower success probability and higher difficulty.
 Each nonce/header attempt is a Bernoulli trial with success probability $p=T/2^{256}$. The number of attempts until success is geometric:
 
 $$
-X\sim \operatorname{Geometric}(p).
+X\sim \mathrm{Geometric}(p).
 $$
 
 Therefore
@@ -70,7 +70,7 @@ Therefore
 $$
 \mathbb E[X]=\frac1p,
 \qquad
-\operatorname{Var}(X)=\frac{1-p}{p^2}.
+\mathrm{Var}(X)=\frac{1-p}{p^2}.
 $$
 
 If the network hash rate is $h$ hashes per second, expected block time is
